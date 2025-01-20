@@ -100,7 +100,7 @@ function App() {
             />
             <FeatureCard
               icon={<LockKeyhole className="w-8 h-8 text-green-500" />}
-              title="安全サポート"
+              title="バックグラウンド動作"
               description="アプリを閉じても、バックグラウンドで動作し、常に安全を見守ります。"
             />
           </div>
