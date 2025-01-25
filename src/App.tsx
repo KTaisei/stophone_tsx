@@ -1,36 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { Smartphone, Shield, Eye, LockKeyhole, AlertTriangle, Check, Send, User, Mail, MessageSquare, Github, Twitter, Newspaper, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+
+interface Post {
+  id: string;
+  title: string;
+  date: string;
+  excerpt: string;
+}
+
+interface PostMetadata {
+  posts: Post[];
+}
+
 function App() {
   const [formStatus, setFormStatus] = useState('');
+  const [blogPosts, setBlogPosts] = useState<Post[]>([]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    fetch('/src/posts/metadata.json')
+      .then(res => res.json())
+      .then((data: PostMetadata) => setBlogPosts(data.posts));
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('送信完了しました！');
     setTimeout(() => setFormStatus(''), 3000);
   };
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: "歩きスマホ防止アプリ v1.0をリリースしました",
-      date: "2024-03-15",
-      excerpt: "長い開発期間を経て、ついに歩きスマホ防止アプリの正式版をリリースしました。主な機能と今後の展開について説明します。",
-    },
-    {
-      id: 2,
-      title: "アプリの使用方法と設定のガイド",
-      date: "2024-03-10",
-      excerpt: "初めてアプリを使用する方向けに、基本的な設定方法と使い方について詳しく解説します。",
-    },
-    {
-      id: 3,
-      title: "歩きスマホの危険性について",
-      date: "2024-03-05",
-      excerpt: "実際の事故データと研究結果に基づいて、歩きスマホの危険性について考察します。",
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
