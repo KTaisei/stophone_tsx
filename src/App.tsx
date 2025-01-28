@@ -1,6 +1,7 @@
 import React, { useState , useEffect } from 'react';
-import { Smartphone, Shield, Eye, LockKeyhole, AlertTriangle, Check, Send, User, Mail, MessageSquare, Github, Twitter, Newspaper, ArrowRight, UserRound } from 'lucide-react';
+import { Smartphone, Shield, Eye, LockKeyhole, AlertTriangle, Check, Github, Twitter, Newspaper, ArrowRight, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ContactForm } from './components/ContactForm';
 
 
 interface Post {
@@ -15,7 +16,6 @@ interface PostMetadata {
 }
 
 function App() {
-  const [formStatus, setFormStatus] = useState('');
   const [blogPosts, setBlogPosts] = useState<Post[]>([]);
 
   useEffect(() => {
@@ -23,12 +23,6 @@ function App() {
       .then(res => res.json())
       .then((data: PostMetadata) => setBlogPosts(data.posts));
   }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormStatus('送信完了しました！');
-    setTimeout(() => setFormStatus(''), 3000);
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -190,74 +184,7 @@ function App() {
             お問い合わせ
           </h2>
           <div className="max-w-md mx-auto">
-            <div className="bg-white rounded-[3rem] shadow-lg overflow-hidden border-8 border-gray-800 relative">
-              {/* Smartphone Notch */}
-              <div className="bg-gray-800 h-6 w-32 mx-auto rounded-b-xl"></div>
-              
-              <form onSubmit={handleSubmit} className="p-8" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfGHXl8VKVJe1AMziW_phOXP-UEuVY6lcg6YoksD_wrUNIhQA/formResponse">
-                <div className="space-y-6">
-                  <div className="relative">
-                    <label className="text-sm text-gray-600 mb-1 block">お名前</label>
-                    <div className="relative">
-                      <User className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
-                      <input
-                        type="text"
-                        required
-                        id="text" 
-                        name="entry.136594137"
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="山田 太郎"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="relative">
-                    <label className="text-sm text-gray-600 mb-1 block">メールアドレス</label>
-                    <div className="relative">
-                      <Mail className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
-                      <input
-                        type="email"
-                        required
-                        id="text" 
-                        name="entry.524256840"
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="example@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="relative">
-                    <label className="text-sm text-gray-600 mb-1 block">お問い合わせ内容</label>
-                    <div className="relative">
-                      <MessageSquare className="w-5 h-5 text-gray-400 absolute left-3 top-3" />
-                      <textarea
-                        required
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent h-32"
-                        placeholder="お問い合わせ内容をご記入ください"
-                      ></textarea>
-                      <input type="text" id="text" name="entry.1755077366"/>
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
-                  >
-                    <Send className="w-5 h-5" />
-                    送信する
-                  </button>
-
-                  {formStatus && (
-                    <div className="text-green-600 text-center font-medium">
-                      {formStatus}
-                    </div>
-                  )}
-                </div>
-              </form>
-
-              {/* Home Button */}
-              
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
