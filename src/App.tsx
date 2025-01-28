@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react';
-import { Smartphone, Shield, Eye, LockKeyhole, AlertTriangle, Check, Send, User, Mail, MessageSquare, Github, Twitter, Newspaper, ArrowRight } from 'lucide-react';
+import { Smartphone, Shield, Eye, LockKeyhole, AlertTriangle, Check, Send, User, Mail, MessageSquare, Github, Twitter, Newspaper, ArrowRight, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 
@@ -42,7 +42,7 @@ function App() {
           Stophone
         </h1>
         <p className="mt-4 text-xl text-gray-600">
-          明日の未来を小さなアプリから、あなたのその一歩を変えていく。
+          一の気づきで、一の未来を変えるアプリへ。
         </p>
         <div className="mt-8">
           <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors">
@@ -72,6 +72,9 @@ function App() {
                 </a>
                 <a href="https://twitter.com/Yasumasascience" className="text-gray-600 hover:text-blue-600 transition-colors">
                   <Twitter className="w-6 h-6" />
+                </a>
+                <a href='https://ktaisei.github.io/official/' className="text-gray-600 hover:text-blue-600 transition-colors">
+                  <UserRound className="w-6 h-6" />
                 </a>
               </div>
             </div>
@@ -191,7 +194,7 @@ function App() {
               {/* Smartphone Notch */}
               <div className="bg-gray-800 h-6 w-32 mx-auto rounded-b-xl"></div>
               
-              <form onSubmit={handleSubmit} className="p-8">
+              <form onSubmit={handleSubmit} className="p-8" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfGHXl8VKVJe1AMziW_phOXP-UEuVY6lcg6YoksD_wrUNIhQA/formResponse">
                 <div className="space-y-6">
                   <div className="relative">
                     <label className="text-sm text-gray-600 mb-1 block">お名前</label>
@@ -200,6 +203,8 @@ function App() {
                       <input
                         type="text"
                         required
+                        id="text" 
+                        name="entry.136594137"
                         className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="山田 太郎"
                       />
@@ -213,6 +218,8 @@ function App() {
                       <input
                         type="email"
                         required
+                        id="text" 
+                        name="entry.524256840"
                         className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="example@email.com"
                       />
@@ -228,6 +235,7 @@ function App() {
                         className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent h-32"
                         placeholder="お問い合わせ内容をご記入ください"
                       ></textarea>
+                      <input type="text" id="text" name="entry.1755077366"/>
                     </div>
                   </div>
 
