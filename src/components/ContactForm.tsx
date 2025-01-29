@@ -33,7 +33,7 @@ export function ContactForm() {
       
       setTimeout(() => setFormStatus(''), 3000);
     } catch (error) {
-      setFormStatus('送信に失敗しました。もう一度お試しください。');
+      setFormStatus('現在フォームは利用できません。');
     } finally {
       setIsSubmitting(false);
     }
