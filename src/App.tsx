@@ -19,7 +19,7 @@ function App() {
   const [blogPosts, setBlogPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    fetch('/src/posts/metadata.json')
+    fetch('/stophone_tsx/metadata.json')
       .then(res => res.json())
       .then((data: PostMetadata) => setBlogPosts(data.posts));
   }, []);
@@ -54,7 +54,7 @@ function App() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">開発者紹介</h2>
               <img
-                src="public/profile.JPG"
+                src="/stophone_tsx/profile.JPG"
                 alt="開発者"
                 className="w-32 h-32 rounded-full mx-auto mb-6 object-cover"
               />

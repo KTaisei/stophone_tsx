@@ -25,7 +25,7 @@ function Blog() {
 
   useEffect(() => {
     // Load posts metadata
-    fetch('/src/posts/metadata.json')
+    fetch('/stophone_tsx/metadata.json')
       .then(res => res.json())
       .then((data: PostMetadata) => {
         setPosts(data.posts);
