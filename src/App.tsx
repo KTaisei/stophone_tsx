@@ -40,7 +40,9 @@ function App() {
         </p>
         <div className="mt-8">
           <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors">
-            アプリをダウンロード
+            <Link to="/download">
+              アプリをダウンロード
+            </Link>
           </button>
         </div>
       </header>
@@ -147,9 +149,9 @@ function App() {
             安全性向上の実績
           </h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <StatCard number="90%" text="事故リスク低減" />
-            <StatCard number="50万+" text="ユーザー数" />
-            <StatCard number="95%" text="ユーザー満足度" />
+            <StatCard number="調査中" text="事故リスク低減" />
+            <StatCard number="2" text="ユーザー数" />
+            <StatCard number="測定不能" text="ユーザー満足度" />
           </div>
         </div>
       </section>
@@ -163,7 +165,7 @@ function App() {
             </h2>
             <p className="text-gray-600">
               歩きスマホは重大な事故につながる可能性があります。
-              私たちのアプリは、あなたの安全な歩行をサポートします。
+              Stophoneは、あなたの安全な歩行をサポートします。
             </p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center">
               {['簡単設定', '省電力', '24時間対応'].map((feature) => (
@@ -192,7 +194,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <p>© 2024 Kawakami Taisei. All rights reserved.</p>
+          <p>© 2025 Kawakami Taisei. All rights reserved.</p>
         </div>
       </footer>
     </div>
