@@ -1,5 +1,5 @@
 import React from 'react';
-import { Construction, Wrench, Clock, Calendar, ArrowLeft } from 'lucide-react';
+import { Construction, Wrench, Clock, Calendar, ArrowLeft, HardHat } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function Download() {
@@ -14,7 +14,7 @@ function Download() {
         <div className="max-w-2xl mx-auto text-center">
           {/* アニメーション付きのアイコン表示 */}
           <div className="relative w-32 h-32 mx-auto mb-8">
-            <Construction className="w-32 h-32 text-blue-600 animate-pulse absolute" />
+            <HardHat className="w-32 h-32 text-blue-600 animate-pulse absolute" />
             <Wrench className="w-16 h-16 text-yellow-500 absolute right-0 bottom-0 animate-bounce" />
           </div>
 
